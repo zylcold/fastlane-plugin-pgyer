@@ -64,9 +64,11 @@ module Fastlane
         }
 
         UI.message "Start upload #{build_file} to pgyer..."
-
+        
         response = pgyer_client.post api_host, params
         info = response.body
+        
+        puts "body is #{response.body}"
 
         UI.success "Upload success. Visit this URL to see: https://www.pgyer.com/#{info['data']['buildKey']}"
 
